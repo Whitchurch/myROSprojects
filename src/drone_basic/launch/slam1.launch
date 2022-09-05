@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="scan_topic" default="scan"/>
+    <arg name="base_frame" default="base_link"/>
+    <arg name="odom_frame" default="odom"/>
+
+    <!--<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>-->
+    <node pkg="rviz" type="rviz" name="rviz" />
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+        <rosparam>
+            odom_frame: odom
+            map_frame: map
+            base_frame: base_link
+            map_update_interval: 0.5
+            maxUrange: 30.0
+            maxRange: 60.0
+            sigma: 0.05
+            kernelSize: 1
+            lstep: 0.05
+            astep: 0.05
+            iterations: 5
+            lsigma: 0.075
+            ogain: 3.0
+            lskip: 0
+            linearUpdate: 0.5
+            angularUpdate: 0.436
+            temporalUpdate: -1.0
+            resampleThreshold: 0.5
+            particles: 80
+            xmin: -1.0
+            ymin: -1.0
+            xmax: 1.0
+            ymax: 1.0
+            delta: 0.025
+            llsamplerange: 0.01
+            llsamplestep: 0.01
+            lasamplerange: 0.005
+            lasamplestep: 0.005  
+        </rosparam>
+    </node>
+    <include file="$(find drone_basic)/launch/project.launch" />
+   
+
+    <!-- Starting the SLAM Node of Gmapping package-->
+   <!-- <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+        <param name="base_frame" value="base_footprint"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="map_frame" value="map"/>
+        <param name="scan_topic" value="scan"/>
+        </node>-->
+    
+
+</launch>

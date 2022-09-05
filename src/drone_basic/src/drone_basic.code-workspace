@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../hector_quadrotor_noetic"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/home/wmuthuma/catkin_ws/devel/lib/python3/dist-packages",
+			"/opt/ros/noetic/lib/python3/dist-packages"
+		]
+	}
+}
